@@ -34,7 +34,7 @@ class Tools extends PluginBase implements Listener {
 
 	public function onDataPacketReceive(DataPacketReceiveEvent $event) : void {
 		$pk = $event->getPacket();
-		if ($pk::NETWORK_ID === DebugInfoPacket::NETWORK_ID) {
+		if ($pk->pid() === DebugInfoPacket::NETWORK_ID) {
 			$player = $event->getOrigin()->getPlayer();
 			if ($player !== null) {
 				assert($pk instanceof DebugInfoPacket);
