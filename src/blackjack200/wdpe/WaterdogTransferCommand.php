@@ -14,7 +14,7 @@ class WaterdogTransferCommand extends Command {
 	}
 
 	public function execute(CommandSender $sender, string $commandLabel, array $args) {
-		if ($sender->isOp() && count($args) >= 2) {
+		if ($sender->getServer()->isOp($sender->getName()) && count($args) >= 2) {
 			[$name, $server] = $args;
 			$player = Server::getInstance()->getPlayerExact($name);
 			if ($player !== null) {
